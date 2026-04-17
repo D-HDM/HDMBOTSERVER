@@ -1,0 +1,14 @@
+{
+  "name": "botserver",
+  "script": "server.js",
+  "instances": 1,
+  "autorestart": true,
+  "max_memory_restart": "512M",
+  "build_timeout": 600,
+  "env": {
+    "NODE_ENV": "production",
+    "PORT": 5000,
+    "SESSION_PATH": "/tmp/sessions",
+    "BROWSERLESS_URL": "wss://chrome.browserless.io?token=2UKqAhw69v8nHetc5954bbdf21d807393955b328526074d08"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "watch": [
+    "server.js",
+    "socket.js",
+    "routes/",
+    "models/",
+    "controllers/",
+    "middleware/",
+    "config/",
+    "whatsapp/"
+  ],
+  "ignore": [
+    "node_modules/",
+    "sessions/",
+    "uploads/",
+    "logs/",
+    "public/",
+    "scripts/",
+    "*.log",
+    ".git/",
+    "sessions/*",
+    "package-lock.json",
+    "nodemon.json",
+    "temp/"
+  ],
+  "delay": 1000,
+  "verbose": false,
+  "ext": "js,json",
+  "env": {
+    "NODE_ENV": "development"
+  }
+}
