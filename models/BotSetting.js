@@ -1,24 +1,35 @@
 const mongoose = require('mongoose');
 
-const botSettingSchema = new mongoose.Schema({
-  sessionId: {
-    type: String,
-    default: 'default',
-    required: true,
-    index: true
+const botSettingSchema = new mongoose.Schema(
+  {
+    sessionId: {
+      type: String,
+      required: true,
+      index: true,
+    },
+    key: {
+      type: String,
+      required: true,
+    },
+    value: {
+      type: mongoose.Schema.Types.Mixed,
+      required: true,
+    },
+    description: {
+      type: String,
+      default: '',
+    },
+    updatedAt: {
+      type: Date,
+      default: Date.now,
+    },
   },
-  key: {
-    type: String,
-    required: true,
-  },
-  value: mongoose.Schema.Types.Mixed,
-  updatedAt: {
-    type: Date,
-    default: Date.now,
-  },
-});
+  {
+    timestamps: true,
+  }
+);
 
-// Compound unique index: each session can have one of each key
+// Compound unique index: one key per session
 botSettingSchema.index({ sessionId: 1, key: 1 }, { unique: true });
 
 module.exports = mongoose.model('BotSetting', botSettingSchema);
